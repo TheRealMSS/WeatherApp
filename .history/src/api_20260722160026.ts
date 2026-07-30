@@ -1,0 +1,8 @@
+
+const API_KEY = import.meta.env.VITE_API_KEY
+
+export async function getWeather({lon, lat}: {lon: number, lat: number}){
+    const res = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid={API key}`)
+    const data = await res.json()
+    return data
+}
