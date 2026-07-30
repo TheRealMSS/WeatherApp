@@ -12,7 +12,11 @@ type Props = {
 export default function Map({ coords, onMapClick }: Props) {
   const { lat, lon } = coords
   return (
-    <MapContainer center={[lat, lon]} zoom={5} style={{ width: "100%", height: "500px" }}>
+    <MapContainer
+      center={[lat, lon]}
+      zoom={5}
+      className="w-full h-[260px] sm:h-[380px] lg:h-[500px] rounded-xl"
+    >
       <MapClick onMapClick={onMapClick} />
       <RecenterMap lat={lat} lon={lon} />
       <TileLayer

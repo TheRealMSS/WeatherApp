@@ -21,29 +21,29 @@ export default function AdditionalInfo({coords}: Props){
 })
 
     return(
-        <Card title='Additional Weather Info' childrenClassName='flex flex-col gap-8'>
+        <Card title='Additional Weather Info' childrenClassName='flex flex-col gap-5 sm:gap-8'>
     {rows.map(({label, value, Icon}) => (
-        <div className='flex justify-between items-center' key={value}>
+        <div className='flex flex-wrap justify-between items-center gap-2' key={value}>
             <div className="flex items-center gap-2">
-                <span className='text-gray-500'>{label}</span>
-                <Icon className="size-5 [&_path]:fill-white [&_path]:stroke-white" /> 
+                <span className='text-gray-500 text-sm sm:text-base'>{label}</span>
+                <Icon className="size-5 shrink-0 [&_path]:fill-white [&_path]:stroke-white" /> 
             </div>
             <span>{data.current[value as keyof typeof data.current]}</span>
         </div>
     ))}
 
 
-            <div className='flex justify-between items-center'>
+            <div className='flex flex-wrap justify-between items-center gap-2'>
             <div className="flex items-center gap-2">
-                <p className='text-gray-500'>Sunrise</p>
-                <Sunrise className="size-5 [&_path]:fill-white"/>
+                <p className='text-gray-500 text-sm sm:text-base'>Sunrise</p>
+                <Sunrise className="size-5 shrink-0 [&_path]:fill-white"/>
             </div>
             <p>{formatLocalTime(data.daily.sunrise[0])}</p>
             </div>
-            <div className='flex justify-between items-center'>
+            <div className='flex flex-wrap justify-between items-center gap-2'>
             <div className="flex items-center gap-2">
-                <p className='text-gray-500'>Sunset</p>
-                <Sunset className="size-5 text-white"/>
+                <p className='text-gray-500 text-sm sm:text-base'>Sunset</p>
+                <Sunset className="size-5 shrink-0 text-white"/>
             </div>
             <p>{formatLocalTime(data.daily.sunset[0])}</p>
             </div>

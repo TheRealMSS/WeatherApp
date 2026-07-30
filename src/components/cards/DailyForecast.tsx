@@ -23,14 +23,14 @@ return (
 const avgFeelsLike = (data.daily.apparent_temperature_max[i] + data.daily.apparent_temperature_min[i]) / 2
 
 return (
-<div key={date} className="flex justify-between mt-0.5">
-<p className='w-9'>{new Date(date).toLocaleDateString(undefined, {
+<div key={date} className="flex items-center justify-between gap-2 mt-0.5 text-sm sm:text-base">
+<p className='w-8 sm:w-9 shrink-0'>{new Date(date).toLocaleDateString(undefined, {
 weekday: "short",
       })}</p>
-<img src={weatherEmoji(data.daily.weather_code[i], 1)} alt="weather icon" className='w-6 h-6' />
-<p>{Math.round(avgFeelsLike)}°C</p>
-<p className='text-gray-500/75'>{Math.round(data.daily.apparent_temperature_min[i])}°C</p>
-<p className='text-gray-500/75'>{Math.round(data.daily.apparent_temperature_max[i])}°C</p>
+<img src={weatherEmoji(data.daily.weather_code[i], 1)} alt="weather icon" className='w-6 h-6 shrink-0' />
+<p className='shrink-0'>{Math.round(avgFeelsLike)}°C</p>
+<p className='text-gray-500/75 shrink-0'>{Math.round(data.daily.apparent_temperature_min[i])}°C</p>
+<p className='text-gray-500/75 shrink-0'>{Math.round(data.daily.apparent_temperature_max[i])}°C</p>
 </div>
   )
 })}

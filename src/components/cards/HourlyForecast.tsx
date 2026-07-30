@@ -15,9 +15,9 @@ const HourlyForecast = ({coords}: Props) => {
   })
 
   return (
-    <Card title='Hourly Forecast (48 hours)' childrenClassName='flex gap-6 overflow-x-scroll'>
+    <Card title='Hourly Forecast (48 hours)' childrenClassName='flex gap-4 sm:gap-6 overflow-x-auto pb-1'>
       {data.hourly.time.map((time, i) => (
-  <div key={time} className="flex flex-col items-center gap-2 items-center p-2">
+  <div key={time} className="flex flex-col items-center gap-2 items-center p-2 shrink-0">
     <p className='whitespace-nowrap'>{new Date(time).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
      <img src={weatherEmoji(data.hourly.weather_code[1], data.hourly.is_day[i])} className='w-10 h-10' alt="current-hourly-weather"/>
      <p>{Math.round(data.hourly.temperature_2m[i])}°C</p>

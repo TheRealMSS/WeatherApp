@@ -37,10 +37,10 @@ export default function LocationDropdown({ onCitySelect }: Props) {
   }
 
   return (
-    <div className="bg-zinc-900 rounded-lg shadow-md p-2">
+    <div className="bg-zinc-900 rounded-lg shadow-md p-2 w-full sm:w-auto">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full gap-2 px-3 py-1 font-medium"
+        className="flex items-center justify-between w-full gap-2 px-3 py-1 font-medium text-sm sm:text-base"
       >
         Browse locations
         {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -49,7 +49,7 @@ export default function LocationDropdown({ onCitySelect }: Props) {
       {isOpen && (
         <div className="flex flex-col gap-2 mt-2">
           <Select onValueChange={(value: string | null) => {if (value) setSelectedContinent(value as Continent)}}>
-            <SelectTrigger className="w-full max-w-64">
+            <SelectTrigger className="w-full sm:max-w-64">
               <SelectValue placeholder="Select a continent" />
             </SelectTrigger>
             <SelectContent>
@@ -63,7 +63,7 @@ export default function LocationDropdown({ onCitySelect }: Props) {
 
           {selectedContinent && (
   <Select onValueChange={(value: string | null) => {if (value) resolveAndSelect(value)}}>
-    <SelectTrigger className="w-full max-w-64">
+    <SelectTrigger className="w-full sm:max-w-64">
       <SelectValue placeholder={loading ? "Loading..." : "Select a city"} />
     </SelectTrigger>
     <SelectContent>
@@ -79,7 +79,7 @@ export default function LocationDropdown({ onCitySelect }: Props) {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search any city..."
-              className="w-full max-w-64 rounded-3xl bg-input/50 px-3 py-2 text-sm outline-none focus-visible:ring-3 focus-visible:ring-ring/30"
+              className="w-full sm:max-w-64 min-w-0 rounded-3xl bg-input/50 px-3 py-2 text-sm outline-none focus-visible:ring-3 focus-visible:ring-ring/30"
             />
             <button
               type="submit"
