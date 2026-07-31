@@ -1,6 +1,6 @@
 // src/components/dropdowns/LocationDropdown.tsx
-import { useState } from "react"
-import { continents, type Continent } from "../locations"
+import { useState, type FormEvent } from "react"
+import { continents, type Continent } from "../Locations"
 import { getCoordinates } from "../../api"
 import { ChevronDown, ChevronUp, Search } from "lucide-react"
 import {
@@ -31,7 +31,7 @@ export default function LocationDropdown({ onCitySelect }: Props) {
     }
   }
 
-  function handleSearchSubmit(e: React.FormEvent) {
+  function handleSearchSubmit(e: FormEvent) {
     e.preventDefault()
     if (query.trim()) resolveAndSelect(query.trim())
   }
@@ -67,7 +67,7 @@ export default function LocationDropdown({ onCitySelect }: Props) {
       <SelectValue placeholder={loading ? "Loading..." : "Select a city"} />
     </SelectTrigger>
     <SelectContent>
-      {continents[selectedContinent].map((city) => (
+      {continents[selectedContinent].map((city: string) => (
         <SelectItem key={city} value={city}>{city}</SelectItem>
       ))}
     </SelectContent>
