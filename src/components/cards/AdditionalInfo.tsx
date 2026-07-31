@@ -1,12 +1,10 @@
-import React from 'react'
 import Card from './Card'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { getWeather } from '../../api'
 import { formatLocalTime } from '../../weather'
-import cloud from '../../assets/cloud.svg?react'
 import wind from '../../assets/wind.svg?react'
 import pressure from '../../assets/pressure.svg?react'
-import { Icon, Sunrise, Sunset } from 'lucide-react'
+import { Sunrise, Sunset } from 'lucide-react'
 import type { Coords } from '../../types'
 
 type Props = {
